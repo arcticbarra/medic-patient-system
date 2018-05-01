@@ -12,6 +12,7 @@ class DoctorDashboard < Administrate::BaseDashboard
     id: Field::Number,
     speciality: Field::Enum,
     years_experience: Field::Number,
+    salary: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     area: Field::BelongsTo,
@@ -37,6 +38,7 @@ class DoctorDashboard < Administrate::BaseDashboard
     :person,
     :speciality,
     :years_experience,
+    :salary,
     :created_at,
     :updated_at,
     :area,
@@ -50,6 +52,7 @@ class DoctorDashboard < Administrate::BaseDashboard
     :speciality,
     :years_experience,
     :area,
+    :salary
   ].freeze
 
   # Overwrite this method to customize how doctors are displayed

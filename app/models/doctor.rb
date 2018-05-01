@@ -14,7 +14,7 @@ class Doctor < ApplicationRecord
   def select_new_leader
     last_area = Area.find(area_id_was)
     if areas.map(&:name).include? last_area.name
-      doctor = Doctor.where("'#{last_area.name.downcase}' = ANY(speciality)").where.not(id: id).first
+      doctor = Doctor.where(area: last_area).where.not(id: id).first
       last_area.update(doctor: doctor)
     end
   end

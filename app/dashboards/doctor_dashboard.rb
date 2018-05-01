@@ -14,7 +14,7 @@ class DoctorDashboard < Administrate::BaseDashboard
     years_experience: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    area_id: Field::Number,
+    area: Field::BelongsTo,
   }.freeze
 
   # COLLECTION_ATTRIBUTES

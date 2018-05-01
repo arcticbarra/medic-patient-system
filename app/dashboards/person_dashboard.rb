@@ -27,6 +27,7 @@ class PersonDashboard < Administrate::BaseDashboard
     :first_name,
     :last_name,
     :dob,
+    :gender
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES

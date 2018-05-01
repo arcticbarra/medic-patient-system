@@ -10,6 +10,11 @@ module Admin
     #     per(10)
     # end
 
+    def resource_params
+      params["doctor"]["speciality"] = params["doctor"]["speciality"].split(' ')
+      params.require(resource_name).permit(*dashboard.permitted_attributes, speciality: [])
+    end
+
     # Define a custom finder by overriding the `find_resource` method:
     # def find_resource(param)
     #   Doctor.find_by!(slug: param)

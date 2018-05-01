@@ -5,10 +5,10 @@ class Doctor < ApplicationRecord
   before_update :increase_salary, if: :years_experience_changed?
   before_update :select_new_leader, if: :area_id_changed?
   has_many :treatments
-  enum speciality: %i[general traumatology allergology
-                      radiology cardiology gerontology
-                      obstetrics pediatrics
-                    ]
+  # enum speciality: %i[general traumatology allergology
+  #                     radiology cardiology gerontology
+  #                     obstetrics pediatrics
+  #                   ]
   validate :speciality_in_area
 
   def select_new_leader
@@ -20,7 +20,7 @@ class Doctor < ApplicationRecord
   end
 
   def speciality_in_area
-    errors.add(:invalid_area, 'That area is not his speciality') unless speciality == area.name.downcase
+    errors.add(:invalid_area, 'That area is not his speciality') unless speciality.include?(area.name.downcase)
   end
 
   def increase_salary

@@ -10,7 +10,7 @@ class DoctorDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     person: Field::BelongsTo,
     id: Field::Number,
-    speciality: Field::Enum,
+    speciality: Field::String,
     years_experience: Field::Number,
     salary: Field::Number,
     created_at: Field::DateTime,
